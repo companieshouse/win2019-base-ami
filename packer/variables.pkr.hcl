@@ -82,7 +82,7 @@ variable "powershell_path" {
 
 variable "root_volume_size_gb" {
   type        = number
-  default     = 20
+  default     = 40
   description = "The EC2 instance root volume size in Gibibytes (GiB)"
 }
 
