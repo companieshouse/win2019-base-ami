@@ -44,11 +44,6 @@ variable "configuration_group" {
   description = "The name of the group to which to add the instance for configuration purposes"
 }
 
-variable "data_volume_size_gib" {
-  type        = number
-  description = "The EC2 instance data volume size in Gibibytes (GiB)"
-}
-
 variable "encrypt_boot" {
   type        = bool
   default     = false
