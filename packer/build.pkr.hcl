@@ -13,7 +13,8 @@ build {
       "-e", "ansible_user=${build.User}",
       "-e", "ansible_password=${build.Password}",
       "-e", "ansible_connection=winrm",
-      "-e", "ansible_winrm_transport=basic"
+      "-e", "ansible_winrm_transport=basic",
+      "-e", "ansible_winrm_server_cert_validation=ignore"
     ]
     use_proxy = false
   }
