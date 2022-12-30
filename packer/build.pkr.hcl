@@ -15,6 +15,7 @@ build {
       "-e", "ansible_connection=winrm",
       "-e", "ansible_winrm_transport=basic"
     ]
+    use_proxy = false
   }
 
   provisioner "powershell" {
