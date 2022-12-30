@@ -40,7 +40,7 @@ variable "aws_subnet_filter_name" {
 
 variable "configuration_group" {
   type        = string
-  default     = "win2019-base"
+  default     = "win2019"
   description = "The name of the group to which to add the instance for configuration purposes"
 }
 
