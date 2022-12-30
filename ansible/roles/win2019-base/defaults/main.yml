@@ -1,0 +1,6 @@
+---
+# main defaults file for win2019-base role
+
+win2019_base_packages:
+ - firefox
+ - notepadplusplus.install

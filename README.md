@@ -1,6 +1,6 @@
-# ami-repository-template
+# win2019-base-ami
 
-Provides a base template for Packer and Ansible based AMI builds.
+Provides code and configuration to build a base Windows Server 2019 AMI
 
 ### Ansible
 

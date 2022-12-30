@@ -1,0 +1,7 @@
+---
+# main tasks file for win2019-base role
+
+- name: Install packages
+  win_chocolatey:
+    name: "{{ win2019_base_packages }}"
+    state: present
