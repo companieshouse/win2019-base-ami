@@ -11,7 +11,7 @@
     timezone: "{{ win2019_base_timezone }}"
 
 - name: Set DNS lookup
-  community.windows.win_dns_client:
+  win_dns_client:
     adapter_names: "*"
     ipv4_addresses: "{{ win2019_base_resolvers }}"
   when: win2019_base_update_resolvers
