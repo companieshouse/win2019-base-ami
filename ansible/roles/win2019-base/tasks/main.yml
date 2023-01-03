@@ -1,7 +1,16 @@
 ---
 # main tasks file for win2019-base role
 
+- name: Ensure firewall is enabled on all profiles
+  community.windows.win_firewall:
+    state: enabled
+    profiles: "{{ win2019_base_firewall_profiles }}"
+
+- name: Set timezone to GMT Standard Time
+  community.windows.win_timezone:
+    timezone: "{{ win2019_base_timezone }}"
+
 - name: Install packages
-  win_chocolatey:
+  chocolatey.chocolatey.win_chocolatey:
     name: "{{ win2019_base_packages }}"
     state: present

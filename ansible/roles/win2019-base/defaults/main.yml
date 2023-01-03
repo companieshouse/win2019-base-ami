@@ -4,3 +4,10 @@
 win2019_base_packages:
  - firefox
  - notepadplusplus.install
+
+win2019_base_timezone: "GMT Standard Time"
+
+win2019_base_firewall_profiles:
+ - Domain
+ - Private
+ - Public
