@@ -9,3 +9,9 @@
 - name: Set timezone to GMT Standard Time
   community.windows.win_timezone:
     timezone: "{{ win2019_base_timezone }}"
+
+- name: Update DNS resolvers
+  win_dns_client:
+    adapter_names: "{{ win2019_base_resolver_adapters }}"
+    ipv4_addresses: "{{ win2019_base_resolver_list }}"
+  when: win2019_base_resolver_update
