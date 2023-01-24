@@ -126,3 +126,21 @@ variable "winrm_use_ssl" {
   description = "Defines whether to use SSL for WinRM communications (true) or not (false)"
   default     = true
 }
+
+## Ansible-specific vars
+variable "ansible_resolver_update" {
+  type        = bool
+  description = "Defines whether the DNS resolvers are updated during the build process (true) or not (false)"
+  default     = false
+}
+
+variable "ansible_resolver_adapters" {
+  type        = string
+  description = "Which adapters will be updated if ansible_resolver_update is true"
+  default     = "*"
+}
+
+variable "ansible_resolver_list" {
+  description = "A list of DNS resolvers to set if ansible_resolver_update is true"
+  default     = []
+}
