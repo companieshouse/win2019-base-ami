@@ -141,6 +141,7 @@ variable "ansible_resolver_adapters" {
 }
 
 variable "ansible_resolver_list" {
+  type        = list(string)
   description = "A list of DNS resolvers to set if ansible_resolver_update is true"
   default     = []
 }
