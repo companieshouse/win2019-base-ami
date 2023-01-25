@@ -1,0 +1,12 @@
+---
+# main defaults file for win2019-base role
+
+win2019_base_firewall_profiles:
+ - Domain
+ - Private
+ - Public
+
+win2019_base_timezone: "GMT Standard Time"
+win2019_base_resolver_update: false
+win2019_base_resolver_adapters: "*"
+win2019_base_resolver_list: []
