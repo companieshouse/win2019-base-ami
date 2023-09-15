@@ -22,6 +22,7 @@ source "amazon-ebs" "builder" {
     volume_size = var.root_volume_size_gb
     volume_type = "gp3"
     throughput = "125"
+    iops       = "3000"
     delete_on_termination = true
   }
 
