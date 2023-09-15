@@ -15,3 +15,9 @@
     adapter_names: "{{ win2019_base_resolver_adapters }}"
     ipv4_addresses: "{{ win2019_base_resolver_list }}"
   when: win2019_base_resolver_update
+
+- name: install the Win32-OpenSSH service
+  win_chocolatey:
+    name: openssh
+    package_params: /SSHServerFeature
+    state: present
