@@ -7,6 +7,7 @@ source "amazon-ebs" "builder" {
   region                = var.aws_region
   ssh_private_key_file  = var.ssh_private_key_file
   ssh_keypair_name      = "packer-builders-${var.aws_region}"
+  ssh_username          = var.ssh_username
   iam_instance_profile  = "packer-builders-${var.aws_region}"
   encrypt_boot          = var.encrypt_boot
   kms_key_id            = var.kms_key_id
