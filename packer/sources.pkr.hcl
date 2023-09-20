@@ -1,6 +1,5 @@
 source "amazon-ebs" "builder" {
   ami_name              = "win2019-base-${var.version}"
-  ami_users             = var.ami_account_ids
   force_delete_snapshot = var.force_delete_snapshot
   force_deregister      = var.force_deregister
   instance_type         = var.aws_instance_type
