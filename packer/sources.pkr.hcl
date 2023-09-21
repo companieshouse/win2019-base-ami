@@ -11,21 +11,14 @@
 #   encrypt_boot          = var.encrypt_boot
 #   kms_key_id            = var.kms_key_id
 
-data "amazon-ami" "windows_2019" {
-  filters = {
-    name = "Windows_Server-2019-English-Full-Base-*"
-  }
-  most_recent = true
-  owners      = ["801119661308"]
-  region      = var.aws_region
-}
 
-source "amazon-ebs" "windows-2019" {
-  ami_name       = "my-windows-2019-aws-{{timestamp}}"
+source "amazon-ebs" "builder" {
+  ami_name       = "win2019-base-${var.version}"
+  iam_instance_profile  = "packer-builders-${var.aws_region}"
   communicator   = "winrm"
-  instance_type  = "t2.micro"
+  instance_type  = var.aws_instance_type
   region         = var.aws_region
-  source_ami     = "${data.amazon-ami.windows_2019.id}"
+  # source_ami     = "${data.amazon-ami.windows_2019.id}"
   user_data_file = "./powershell/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
