@@ -18,7 +18,7 @@ variable "aws_region" {
 
 variable "aws_source_ami_filter_name" {
   type        = string
-  default     = "Windows_Server-2019-English-Full-Base-*"
+  default     = "Windows_Server-2022-English-Full-Base-*"
   description = "The source AMI filter string. Any filter described by the DescribeImages API documentation is valid. If multiple images match then the latest will be used"
 }
 
@@ -35,7 +35,7 @@ variable "aws_subnet_filter_name" {
 
 variable "configuration_group" {
   type        = string
-  default     = "win2019"
+  default     = "win2022"
   description = "The name of the group to which to add the instance for configuration purposes"
 }
 
