@@ -1,15 +1,35 @@
-source "amazon-ebs" "builder" {
-  ami_name              = "win2019-base-${var.version}"
-  force_delete_snapshot = var.force_delete_snapshot
-  force_deregister      = var.force_deregister
-  instance_type         = var.aws_instance_type
-  region                = var.aws_region
-  # ssh_private_key_file  = var.ssh_private_key_file
-  # ssh_username          = "ec2-user"
-  # ssh_keypair_name      = "packer-builders-${var.aws_region}"
-  iam_instance_profile  = "packer-builders-${var.aws_region}"
-  encrypt_boot          = var.encrypt_boot
-  kms_key_id            = var.kms_key_id
+# source "amazon-ebs" "builder" {
+#   ami_name              = "win2019-base-${var.version}"
+#   force_delete_snapshot = var.force_delete_snapshot
+#   force_deregister      = var.force_deregister
+#   instance_type         = var.aws_instance_type
+#   region                = var.aws_region
+#   ssh_private_key_file  = var.ssh_private_key_file
+#   ssh_username          = "ec2-user"
+#   ssh_keypair_name      = "packer-builders-${var.aws_region}"
+#   iam_instance_profile  = "packer-builders-${var.aws_region}"
+#   encrypt_boot          = var.encrypt_boot
+#   kms_key_id            = var.kms_key_id
+
+data "amazon-ami" "windows_2019" {
+  filters = {
+    name = "Windows_Server-2019-English-Full-Base-*"
+  }
+  most_recent = true
+  owners      = ["801119661308"]
+  region      = var.aws_region
+}
+
+source "amazon-ebs" "windows-2019" {
+  ami_name       = "my-windows-2019-aws-{{timestamp}}"
+  communicator   = "winrm"
+  instance_type  = "t2.micro"
+  region         = var.aws_region
+  source_ami     = "${data.amazon-ami.windows_2019.id}"
+  user_data_file = "./powershell/SetUpWinRM.ps1"
+  winrm_insecure = true
+  winrm_use_ssl  = true
+  winrm_username = "Administrator"
 
   # communicator   = "winrm"
   # winrm_insecure = var.winrm_insecure
