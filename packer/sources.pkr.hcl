@@ -41,13 +41,13 @@ source "amazon-ebs" "builder" {
     most_recent = true
   }
 
-  subnet_filter {
-    filters = {
-      "tag:Name" : "${var.aws_subnet_filter_name}"
-    }
-    most_free = true
-    random    = false
-  }
+  # subnet_filter {
+  #   filters = {
+  #     "tag:Name" : "${var.aws_subnet_filter_name}"
+  #   }
+  #   most_free = true
+  #   random    = false
+  # }
 
   run_tags = {
     AMI     = "${var.ami_name_prefix}"

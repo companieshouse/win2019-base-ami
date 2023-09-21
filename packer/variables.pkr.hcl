@@ -28,10 +28,10 @@ variable "aws_source_ami_owner_id" {
   default     = "amazon"
 }
 
-variable "aws_subnet_filter_name" {
-  type        = string
-  description = "The subnet filter string. Any filter described by the DescribeSubnets API documentation is valid. If multiple subnets match then the one with the most IPv4 addresses free will be used"
-}
+# variable "aws_subnet_filter_name" {
+#   type        = string
+#   description = "The subnet filter string. Any filter described by the DescribeSubnets API documentation is valid. If multiple subnets match then the one with the most IPv4 addresses free will be used"
+# }
 
 variable "configuration_group" {
   type        = string
