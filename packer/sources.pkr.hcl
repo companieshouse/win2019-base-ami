@@ -1,5 +1,5 @@
 source "amazon-ebs" "builder" {
-  ami_name              = "win2022-base-${var.version}"
+  ami_name              = "win2019-base-${var.version}"
   force_delete_snapshot = var.force_delete_snapshot
   force_deregister      = var.force_deregister
   instance_type         = var.aws_instance_type
@@ -15,7 +15,6 @@ source "amazon-ebs" "builder" {
   winrm_username = var.winrm_username
   # winrm_use_ssl  = var.winrm_use_ssl
   winrm_port     = "5985"
-  winrm_no_proxy = true
   user_data_file = "${var.powershell_path}/winrm_bootstrap.txt"
 
   launch_block_device_mappings {
