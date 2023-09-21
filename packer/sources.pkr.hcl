@@ -13,8 +13,8 @@ source "amazon-ebs" "builder" {
   communicator   = "winrm"
   winrm_insecure = var.winrm_insecure
   winrm_username = var.winrm_username
-  winrm_use_ssl  = var.winrm_use_ssl
-  winrm_port     = "5986"
+  # winrm_use_ssl  = var.winrm_use_ssl
+  winrm_port     = "5985"
   user_data_file = "${var.powershell_path}/winrm_bootstrap.txt"
 
   launch_block_device_mappings {
