@@ -10,12 +10,12 @@ source "amazon-ebs" "builder" {
   encrypt_boot          = var.encrypt_boot
   kms_key_id            = var.kms_key_id
 
-  communicator   = "winrm"
-  winrm_insecure = var.winrm_insecure
-  winrm_username = var.winrm_username
+  # communicator   = "winrm"
+  # winrm_insecure = var.winrm_insecure
+  # winrm_username = var.winrm_username
   # winrm_use_ssl  = var.winrm_use_ssl
-  winrm_port     = "5985"
-  user_data_file = "${var.powershell_path}/winrm_bootstrap.txt"
+  # winrm_port     = "5986"
+  # user_data_file = "${var.powershell_path}/winrm_bootstrap.txt"
 
   launch_block_device_mappings {
     device_name           = "/dev/sda1"
