@@ -28,9 +28,8 @@ variable "aws_source_ami_owner_id" {
   default     = "amazon"
 }
 
-variable "aws_subnet_filter_name_new" {
+variable "aws_subnet_filter_name" {
   type        = string
-  default     = "sub-public-*"
   description = "The subnet filter string. Any filter described by the DescribeSubnets API documentation is valid. If multiple subnets match then the one with the most IPv4 addresses free will be used"
 }
 

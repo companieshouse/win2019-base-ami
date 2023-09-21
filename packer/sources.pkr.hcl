@@ -43,7 +43,7 @@ source "amazon-ebs" "builder" {
 
   subnet_filter {
     filters = {
-      "tag:Name" : "${var.aws_subnet_filter_name_new}"
+      "tag:Name" : "${var.aws_subnet_filter_name}"
     }
     most_free = true
     random    = false
