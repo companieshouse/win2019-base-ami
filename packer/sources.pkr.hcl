@@ -19,7 +19,7 @@ source "amazon-ebs" "builder" {
   instance_type  = var.aws_instance_type
   region         = var.aws_region
   # source_ami     = "${data.amazon-ami.windows_2019.id}"
-  user_data_file = "./powershell/SetUpWinRM.ps1"
+  user_data_file = "${var.powershell_path}/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
   winrm_username = "Administrator"
