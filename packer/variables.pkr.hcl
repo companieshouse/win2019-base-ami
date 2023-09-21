@@ -107,7 +107,7 @@ variable "winrm_insecure" {
 variable "winrm_timeout" {
   type        = string
   description = "Delay before WinRM-HTTPS connections time-out"
-  default     = "15m"
+  default     = "30m"
 }
 
 variable "winrm_username" {

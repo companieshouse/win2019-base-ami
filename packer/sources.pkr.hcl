@@ -1,35 +1,22 @@
-# source "amazon-ebs" "builder" {
-#   ami_name              = "win2019-base-${var.version}"
-#   force_delete_snapshot = var.force_delete_snapshot
-#   force_deregister      = var.force_deregister
-#   instance_type         = var.aws_instance_type
-#   region                = var.aws_region
-#   ssh_private_key_file  = var.ssh_private_key_file
-#   ssh_username          = "ec2-user"
-#   ssh_keypair_name      = "packer-builders-${var.aws_region}"
-#   iam_instance_profile  = "packer-builders-${var.aws_region}"
-#   encrypt_boot          = var.encrypt_boot
-#   kms_key_id            = var.kms_key_id
-
-
 source "amazon-ebs" "builder" {
-  ami_name       = "win2019-base-${var.version}"
+  ami_name              = "win2019-base-${var.version}"
+  force_delete_snapshot = var.force_delete_snapshot
+  force_deregister      = var.force_deregister
+  instance_type         = var.aws_instance_type
+  region                = var.aws_region
+  ssh_private_key_file  = var.ssh_private_key_file
+  ssh_username          = "ec2-user"
+  ssh_keypair_name      = "packer-builders-${var.aws_region}"
   iam_instance_profile  = "packer-builders-${var.aws_region}"
-  communicator   = "winrm"
-  instance_type  = var.aws_instance_type
-  region         = var.aws_region
-  # source_ami     = "${data.amazon-ami.windows_2019.id}"
-  user_data_file = "${var.powershell_path}/SetUpWinRM.ps1"
-  winrm_insecure = true
-  winrm_use_ssl  = true
-  winrm_username = "Administrator"
+  encrypt_boot          = var.encrypt_boot
+  kms_key_id            = var.kms_key_id
 
-  # communicator   = "winrm"
-  # winrm_insecure = var.winrm_insecure
-  # winrm_username = var.winrm_username
-  # winrm_use_ssl  = var.winrm_use_ssl
-  # winrm_port     = "5986"
-  # user_data_file = "${var.powershell_path}/winrm_bootstrap.txt"
+  communicator   = "winrm"
+  winrm_insecure = var.winrm_insecure
+  winrm_username = var.winrm_username
+  winrm_use_ssl  = var.winrm_use_ssl
+  winrm_port     = "5986"
+  user_data_file = "${var.powershell_path}/winrm_bootstrap.ps1"
 
   launch_block_device_mappings {
     device_name           = "/dev/sda1"
