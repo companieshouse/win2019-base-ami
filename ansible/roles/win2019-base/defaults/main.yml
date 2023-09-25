@@ -7,6 +7,6 @@ win2019_base_firewall_profiles:
  - Public
 
 win2019_base_timezone: "GMT Standard Time"
-win2019_base_resolver_update: false
+win2019_base_resolver_update: true
 win2019_base_resolver_adapters: "*"
 win2019_base_resolver_list: []

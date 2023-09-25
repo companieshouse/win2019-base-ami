@@ -131,7 +131,7 @@ variable "winrm_use_ssl" {
 variable "ansible_resolver_update" {
   type        = bool
   description = "Defines whether the DNS resolvers are updated during the build process (true) or not (false)"
-  default     = false
+  default     = true
 }
 
 variable "ansible_resolver_adapters" {
