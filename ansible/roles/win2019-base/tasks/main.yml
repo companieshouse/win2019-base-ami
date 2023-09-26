@@ -16,11 +16,3 @@
     ipv4_addresses: "{{ win2019_base_resolver_list }}"
   when: win2019_base_resolver_update
 
-- name: test powershell
-  win_shell: |
-            get-timezone
-  register: result_get_timezone
-
-- name: display result_get_timezone
-  debug:
-    var: result_get_timezone
