@@ -5,3 +5,12 @@
   become_method: runas
   roles:
   - { role: win2019-base, tags: win2019-base}
+
+  - name: test powershell
+    win_shell: |
+              get-timezone
+    register: result_get_timezone
+
+  - name: display result_get_timezone
+    debug:
+      var: result_get_timezone

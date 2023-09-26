@@ -46,7 +46,7 @@ variable "configuration_group" {
 
 variable "encrypt_boot" {
   type        = bool
-  default     = false
+  default     = true
   description = "Whether to encrypt the root volume of the AMI (and instances created from it)"
 }
 
