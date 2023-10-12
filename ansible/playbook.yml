@@ -3,5 +3,3 @@
   become: yes
   become_user: Administrator
   become_method: runas
-  roles:
-  - { role: win2019-base, tags: win2019-base}
