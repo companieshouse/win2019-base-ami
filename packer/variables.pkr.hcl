@@ -68,12 +68,6 @@ variable "kms_key_id" {
   description = "KMS key ID, arn or alias to use for root volume encryption in the main region. If encrypt_boot is true and this is left null, the AWS default key is used"
 }
 
-variable "playbook_file_path" {
-  type        = string
-  default     = "../ansible/playbook.yml"
-  description = "The relative path to the Ansible playbook file"
-}
-
 variable "powershell_path" {
   type        = string
   description = "Path to the build-time powershell scripts"
