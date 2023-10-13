@@ -2,10 +2,6 @@
 
 Provides code and configuration to build a base Windows Server 2019 AMI
 
-### Ansible
-
-All Ansible configuration resides in the `./ansible` directory. The Ansible configuration will be called during the provisioning step of the Packer build as defined in `./packer/build.pkr.hcl`.
-
 ### Powershell
 
 Powershell scripts required to bootstrap the WinRM connection used for Ansible provisioning are stored in the `./powershell` directory and are called during the provisioning step of the Packer build as defined in `./packer/build.pkr.hcl`.
@@ -28,7 +24,6 @@ All Packer configuration resides in the `./packer` directory and utilises standa
 | force_delete_snapshot      | bool   | `false`                                   | Automatically delete snapshots associated with AMIs deregistered by `force_deregister`.                                                                   |
 | force_deregister           | bool   | `false`                                   | Deregister an existing AMI if one with the same name exists.                                                                                              |
 | kms_key_id                 | string | `null`                                    | The Id of the KMS key to use when `encrypt_boot` is enabled. The default KMS key is used if `encrypt_boot` is enabled but a key is not provided.          |
-| playbook_file_path         | string | `../ansible/playbook.yml`                 | Relative path to the Ansible playbook file.                                                                                                               |
 | powershell_path            | string | `../powershell`                           | Relative path to the Powershell scripts.                                                                                                                  |
 | root_volume_size_gb        | number | `40`                                      | The EC2 instance root volume size in Gibibytes (GiB).                                                                                                     |
 | ssh_private_key_file       | string | `/home/packer/.ssh/packer-builder`        | The path to the common Packer builder private SSH key.                                                                                                    |
